@@ -26,7 +26,7 @@ public class DataDrive {
 		Object[][] data = null;
 		ArrayList<HashMap<String, String>> finalTestSet = new ArrayList<HashMap<String, String>>();
 
-		FileInputStream fis = new FileInputStream("C:\\Users\\DinnuBunny\\git\\HYR_Tuto\\org.projects\\Book11.xlsx");
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\Book11.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		XSSFSheet worksheet = workbook.getSheet("Book1");
 		data = new Object[worksheet.getLastRowNum()][1];
@@ -37,7 +37,7 @@ public class DataDrive {
 			HashMap<String, String> dataHash = new HashMap<String, String>();
 			Row row = worksheet.getRow(i);
 
-			for (int j = headerRow.getFirstCellNum(); j < headerRow.getLastCellNum(); j++) {
+			for (int j = headerRow.getFirstCellNum(); j < headerRow.getPhysicalNumberOfCells(); j++) {
 				dataHash.put(getCellValue((XSSFCell) headerRow.getCell(j)), getCellValue((XSSFCell) row.getCell(j)));
 
 			}

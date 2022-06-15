@@ -12,7 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ExcelWorkBook {
 	public static void main(String[] args) throws Exception {
 		try {
-			File f = new File("C:\\Users\\DinnuBunny\\Desktop\\Book11.xlsx");
+			File f = new File(System.getProperty("user.dir") + "\\Book11.xlsx");
 			System.out.println(f.exists());
 			FileInputStream fis = new FileInputStream(f);
 			XSSFWorkbook workbook = new XSSFWorkbook(fis);

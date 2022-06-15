@@ -1,6 +1,8 @@
 package org.projectsHyr;
 
 import java.io.FileReader;
+import java.util.Iterator;
+
 import com.opencsv.CSVReader;
 
 public class csv2 {
@@ -11,10 +13,13 @@ public class csv2 {
 //			System.out.println(reader.verifyReader());
 			String[] nextLine;
 //read one line at a time  
-			while ((nextLine = reader.readNext()) != null) {
+			Iterator<String[]> it = reader.iterator();
+			String[] headerrow = it.next();
+			while (it.hasNext()) {
 //				System.out.println(nextLine);
-				for (String each : nextLine) {
-					System.out.print("| " + each + " ");
+				String[] nxt = it.next();
+				for (String n : nxt) {
+					System.out.print("| " + n + " ");
 				}
 				System.out.println("|");
 			}
