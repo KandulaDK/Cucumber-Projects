@@ -24,8 +24,7 @@ public class DataDrive {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		Object[][] data = null;
-		ArrayList<HashMap<String, String>> finalTestSet = new ArrayList<HashMap<String, String>>();
-
+		
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\Book11.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		XSSFSheet worksheet = workbook.getSheet("Book1");
@@ -46,6 +45,8 @@ public class DataDrive {
 
 		System.out.println(data);
 
+		ArrayList<HashMap<String, String>> finalTestSet = new ArrayList<HashMap<String, String>>();	
+		
 		for (int i = 0; i < data.length; i++) {
 			@SuppressWarnings("unchecked")
 			HashMap<String, String> testData = (HashMap<String, String>) data[i][0];
