@@ -9,9 +9,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class WorkingWithTestNG {
 	@Test
 	public void openingChrome() {
-		WebDriverManager.chromedriver().setup();
-		WebDriver dinnu = new ChromeDriver();
 		
-		dinnu.get("https://www.google.com");
+		int a = 10;
+		int b =++a;
+		System.out.println(b);
+		System.out.println(a++);
+		System.out.println(a);
 	}
 }

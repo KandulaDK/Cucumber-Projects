@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class dropDowns {
+public class JSExecutor {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
