@@ -3,8 +3,8 @@ package org.projectsHyr;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
-
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
@@ -19,6 +19,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class prac {
 	static WebDriver driver;
 	static String nextBtn = "//li //a[@aria-label='Next']";
+	
+	private static Logger log = LogManager.getLogger(prac.class.getClass());
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -27,7 +29,9 @@ public class prac {
 		driver.manage().window().maximize();
 		
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		log.info("opened greencart website");
 		driver.findElement(By.linkText("Top Deals")).click();
+		log.trace("clicked on Top Deals");
 		driver.findElement(By.linkText("Flight Booking")).click();
 		driver.findElement(By.cssSelector("a[class*='cart-header-navlink blinkingText']")).click();
 
@@ -58,7 +62,7 @@ public class prac {
 				break;
 			}
 		} while (it.hasNext());
-		
+		driver.quit();
 	
 		
 //			String actualUrl = "https://rahulshettyacademy.com/seleniumPractise/#/offers";
@@ -74,7 +78,7 @@ public class prac {
 			driver.findElement(By.xpath(nextBtn));
 			return true;
 		} catch (Exception err) {
-			System.out.println(err.getMessage());
+//			System.out.println(err.getMessage());
 //			e.printStackTrace();
 			return false;
 		}
