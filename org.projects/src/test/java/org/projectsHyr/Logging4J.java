@@ -7,9 +7,9 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class WorkingWithTestNG {
+public class Logging4J {
 	
-	private static Logger log = LogManager.getLogger(WorkingWithTestNG.class.getName());
+	private static Logger log = LogManager.getLogger(Logging4J.class.getName());
 //	@Test
 //	public void openingChrome() {
 //		
