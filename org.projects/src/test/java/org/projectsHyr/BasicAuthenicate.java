@@ -26,6 +26,7 @@ public class BasicAuthenicate {
 		WebDriverManager.chromedriver().setup();
 		
 		driver = new ChromeDriver();
+		log.info("Driver was created and browser is opening");
 		
 //		driver.get("http://admin:admin@the-internet.herokuapp.com/");
 //		
@@ -52,9 +53,12 @@ public class BasicAuthenicate {
 //		i.next();
 //		driver.switchTo().window(i.next());
 		driver.navigate().to("https://jpg2pdf.com/");
+		log.info("opening Jpg to pdf page..");
 		driver.findElement(By.cssSelector("label[aria-label='Upload Files']")).click();
+		log.info("clicked on Upload File button");
 		Thread.sleep(3000);
-		Runtime.getRuntime().exec("C:\\Users\\DELL\\Downloads\\fileupload.exe");
+		Runtime.getRuntime().exec("C:\\Users\\DinnuBunny\\Downloads\\New folder\\fileupload.exe");
+		log.info("choosing the file to upload");
 		
 		//span[class='file-button__text file-button__text_title'] ---download button
 		
@@ -62,7 +66,10 @@ public class BasicAuthenicate {
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span[class*='file-button__text']")));
 		driver.findElement(By.cssSelector("span[class*='file-button__text']")).click();
-		
+		log.info("Clicked on Download Button");
+		Thread.sleep(3000);
+		driver.quit();
+		log.info("Browser Closed...");
 		
 	}
 }
