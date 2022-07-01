@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 import javax.sound.midi.SysexMessage;
 
+import org.apache.logging.log4j.*;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -19,24 +20,32 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.google.common.io.Files;
 
 public class DataDrive {
-
+	
+	private static Logger log =  LogManager.getLogger(DataDrive.class.getName());
 //	static XMLOperation xml = new XMLOperation();
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		Object[][] data = null;
 		
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\Book11.xlsx");
+		log.info("FileInputStream getting the workbook from" + System.getProperty("user.dir") + "\\Book11.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		log.info("Object for XSSF Workbook created");
 		XSSFSheet worksheet = workbook.getSheet("Book1");
+		log.info("Reading the sheet from the book as :" + "Book1");
 		data = new Object[worksheet.getLastRowNum()][1];
 
 		Row headerRow = worksheet.getRow(0);
+		log.info("Getting Header Row");
 //		System.out.println(worksheet.getPhysicalNumberOfRows());
+		
 		for (int i = 1; i < worksheet.getPhysicalNumberOfRows(); i++) {
+			log.info("Iterating Over Row" + i);
 			HashMap<String, String> dataHash = new HashMap<String, String>();
 			Row row = worksheet.getRow(i);
 
 			for (int j = headerRow.getFirstCellNum(); j < headerRow.getPhysicalNumberOfCells(); j++) {
+				log.info("Iterating over Cells" + j);
 				dataHash.put(getCellValue((XSSFCell) headerRow.getCell(j)), getCellValue((XSSFCell) row.getCell(j)));
 
 			}
@@ -56,6 +65,7 @@ public class DataDrive {
 
 		Object[][] finaldataset = new Object[finalTestSet.size()][1];
 		for (int i = 0; i < finalTestSet.size(); i++) {
+			
 			HashMap<String, String> testData = finalTestSet.get(i);
 			finaldataset[i][0] = testData;
 		}
