@@ -20,6 +20,24 @@ public class BubbleSort {
 			    }
 			}
 		}
+		for (int i : arr) {
+			System.out.println(i);
+		}
+		
+		int[] in = {12,4,5,7,34,8,1};
+		for(int i=0;i<in.length;i++) {
+			int temp;
+			for(int j=0;j<in.length-1;j++) {
+				if(in[j]>in[j+1]) {
+					temp = in[j];
+					in[j] = in[j+1];
+					in[j+1] = temp;
+				}
+			}
+		}
+		for (int i : in) {
+			System.out.println(i);
+		}
 
 	}
 
