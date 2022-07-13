@@ -16,7 +16,7 @@ public class ExcelWorkBook {
 			System.out.println(f.exists());
 			FileInputStream fis = new FileInputStream(f);
 			XSSFWorkbook workbook = new XSSFWorkbook(fis);
-			XSSFSheet sheet = workbook.getSheetAt(0);
+			XSSFSheet sheet = workbook.getSheet("Book1");
 			int rowCount = sheet.getPhysicalNumberOfRows();
 			
 			for(int i=0;i<rowCount;i++) {
@@ -25,12 +25,12 @@ public class ExcelWorkBook {
 				int cellCount = row.getPhysicalNumberOfCells();
 				for(int j=0;j<cellCount;j++) {
 					XSSFCell cell = row.getCell(j);
+					
 					String cellValue = getCellValue(cell);
 					System.out.print("| " + cellValue);
 				}
 				System.out.println("|");
 			}
-			
 			workbook.close();
 			fis.close();
 		} catch (Exception e) {
@@ -42,6 +42,7 @@ public class ExcelWorkBook {
 
 	private static String getCellValue(XSSFCell cell) {
 		// TODO Auto-generated method stub public String getCellValue(XSSFCell cell) {
+		String output = "";
 		switch(cell.getCellType()) {
 		
 		case NUMERIC:

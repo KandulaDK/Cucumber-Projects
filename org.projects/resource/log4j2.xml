@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
 	<Properties>
-		<Property name="basePath">./logs</Property>
+		<Property name="basePath">./logss</Property>
 	</Properties>
 
 	<Appenders>
 		<RollingFile name="File" fileName="${basePath}/prints.log"
-			filePattern="${basePath}/prints-%d{yyyy-MM-dd}.log">
+			filePattern="${basePath}/prints-%d{yyyy-MM-dd-HH:mm:ss}.log">
 			<PatternLayout
 				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-			<SizeBasedTriggeringPolicy size="500" />
+			<!-- <SizeBasedTriggeringPolicy size="500" /> -->
 		</RollingFile>
 		<Console name="Console" target="SYSTEM_OUT">
 			<PatternLayout
@@ -18,12 +18,12 @@
 	</Appenders>
 	
 	<Loggers>
-		<Logger name='org.projectsHyr.BasicAuthenicate' level='trace'
+		<Logger name='org.projectsHyr.DataDrive' level='trace'
 			additivity='false'>
-			<AppenderRef ref="Console" />
+			<AppenderRef ref="File" />
 		</Logger>
 		
-		<Root level="debug">
+		<Root level="trace">
 			<AppenderRef ref="Console" />
 		</Root>
 	</Loggers>
