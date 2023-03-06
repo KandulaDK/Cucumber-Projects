@@ -1,3 +1,15 @@
 00:08:45.834 [main] INFO  org.projectsHyr.DataDrive - Iterating over Cells4
 00:08:45.838 [main] INFO  org.projectsHyr.DataDrive - Iterating over Cells5
 00:08:45.838 [main] INFO  org.projectsHyr.DataDrive - Iterating over Cells6
+11:48:34.716 [main] DEBUG java.lang.Class - I am debuging
+11:48:34.720 [main] INFO  java.lang.Class - object is present
+11:48:34.720 [main] ERROR java.lang.Class - object is not present
+11:48:34.720 [main] FATAL java.lang.Class - this is fatal
+11:48:56.291 [main] DEBUG java.lang.Class - I am debuging
+11:48:56.295 [main] INFO  java.lang.Class - object is present
+11:48:56.295 [main] ERROR java.lang.Class - object is not present
+11:48:56.295 [main] FATAL java.lang.Class - this is fatal
+11:53:07.526 [main] DEBUG java.lang.Class - I am debuging
+11:53:07.530 [main] INFO  java.lang.Class - object is present
+11:53:07.530 [main] ERROR java.lang.Class - object is not present
+11:53:07.531 [main] FATAL java.lang.Class - this is fatal
